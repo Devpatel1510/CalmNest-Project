@@ -381,6 +381,29 @@ const HomePage1 = () => {
         </div>
       </section>
 
+      <section className="bg-[#1F4B4E] text-[#C2E6E8] py-16 px-8 flex flex-col lg:flex-row justify-between items-center gap-8">
+      <h2 className="text-4xl font-semibold text-center lg:text-left">
+        Schedule A <br /> Consultation
+      </h2>
+
+      <p className="text-center lg:text-left text-lg font-semibold max-w-xl">
+        CalmNest is currently accepting new clients. Available for online and in-person sessions.
+      </p>
+
+      <button onClick={()=>navigate("/contact")}className="relative overflow-hidden border border-[#C2E6E8] text-[#C2E6E8] px-6 py-3 rounded-md flex items-center gap-2 font-semibold group hover:shadow-glow transition-all duration-300">
+  
+  <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-transparent via-[#C2E6E8]/20 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none skew-x-12" />
+
+  
+  <span className="relative z-10 flex items-center gap-2">
+    <Sparkles className="w-5 h-5 text-[#C2E6E8] group-hover:animate-spin-slow" />
+    Start Healing
+  </span>
+</button>
+
+
+    </section>
+
        <section className="bg-[#f7f9fc] py-16 px-4 sm:px-6 lg:px-20">
       
       <div className="max-w-4xl mx-auto text-center mb-12">
