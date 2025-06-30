@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin 'tailwindcss-motion';
+
+body,button,a,div,input {
+  cursor: url('/arrowhead-rounded-outline.svg') 4 4, auto;
+}
+
