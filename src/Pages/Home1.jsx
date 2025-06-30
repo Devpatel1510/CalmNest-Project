@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from 'framer-motion'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -12,7 +12,7 @@ const HomePage1 = () => {
 
   const location = useLocation();
 
-   const [yearsExp, setYearsExp] = useState(0);
+  const [yearsExp, setYearsExp] = useState(0);
   const [clientSessions, setClientSessions] = useState(0);
   const sectionRef = useRef(null);
   const animationStarted = useRef(false);
@@ -22,13 +22,13 @@ const HomePage1 = () => {
       (entries) => {
         if (entries[0].isIntersecting && !animationStarted.current) {
           animationStarted.current = true;
-          
-          
+
+
           let start = 0;
           const endYears = 8;
-          const durationYears = 2000; 
+          const durationYears = 2000;
           const incrementYears = endYears / (durationYears / 16);
-          
+
           const yearsTimer = setInterval(() => {
             start += incrementYears;
             if (start >= endYears) {
@@ -38,13 +38,13 @@ const HomePage1 = () => {
               setYearsExp(Math.floor(start));
             }
           }, 16);
-          
-          
+
+
           let startSessions = 0;
           const endSessions = 500;
-          const durationSessions = 2500; 
+          const durationSessions = 2500;
           const incrementSessions = endSessions / (durationSessions / 16);
-          
+
           const sessionsTimer = setInterval(() => {
             startSessions += incrementSessions;
             if (startSessions >= endSessions) {
@@ -72,17 +72,17 @@ const HomePage1 = () => {
   const [errors, setErrors] = useState({});
 
   const cardVariants = {
- animate: {
-    x: [-200, 0],
-    opacity: [0, 1],
-    transition: {
-      repeat: Infinity,
-      repeatType: 'loop',
-      duration: 6,      
-      ease: 'easeInOut',
+    animate: {
+      x: [-200, 0],
+      opacity: [0, 1],
+      transition: {
+        repeat: Infinity,
+        repeatType: 'loop',
+        duration: 6,
+        ease: 'easeInOut',
+      },
     },
-  },
-}
+  }
 
 
 
@@ -112,38 +112,38 @@ const HomePage1 = () => {
   });
 
   const validate = () => {
-  const newErrors = {};
+    const newErrors = {};
 
-  if (!formData.name.trim()) {
-    newErrors.name = "Name is required";
-  }
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
 
-  if (!formData.phone.trim()) {
-    newErrors.phone = "Phone is required";
-  } else if (!/^\d{10}$/.test(formData.phone)) {
-    newErrors.phone = "Phone must be 10 digits";
-  }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Phone must be 10 digits";
+    }
 
-  if (!formData.email.trim()) {
-    newErrors.email = "Email is required";
-  } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-    newErrors.email = "Email is invalid";
-  }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
 
-  if (!formData.reason.trim()) {
-    newErrors.reason = "Please select a reason";
-  }
+    if (!formData.reason.trim()) {
+      newErrors.reason = "Please select a reason";
+    }
 
-  if (!formData.preferredTime.trim()) {
-    newErrors.preferredTime = "Please select a time";
-  }
+    if (!formData.preferredTime.trim()) {
+      newErrors.preferredTime = "Please select a time";
+    }
 
-  if (!formData.agree) {
-    newErrors.agree = "You must agree to proceed";
-  }
+    if (!formData.agree) {
+      newErrors.agree = "You must agree to proceed";
+    }
 
-  return newErrors;
-};
+    return newErrors;
+  };
 
 
   const toggleMenu = () => {
@@ -159,141 +159,141 @@ const HomePage1 = () => {
   };
 
   const handleSubmit = (e) => {
-  e.preventDefault();
-  const validationErrors = validate();
-  toast.success("Sent successfully");
+    e.preventDefault();
+    const validationErrors = validate();
+    toast.success("Sent successfully");
 
-  if (Object.keys(validationErrors).length > 0) {
-    setErrors(validationErrors);
-  } else {
-    setErrors({});
-    
-    console.log("Submitting:", formData);
-  }
-};
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      setErrors({});
+
+      console.log("Submitting:", formData);
+    }
+  };
 
   return (
     <div className="scroll-smooth bg-white text-gray-900 font-['Inter']">
 
 
 
-      
+
       <section
-      id="hero"
-      className="relative h-screen flex items-center justify-center text-center bg-gradient-to-b from-teal-900/90 to-teal-900/70"
-    >
-      
-      <img
-        alt="Calm serene nature background with soft light"
-        className="absolute inset-0 w-full h-full object-cover brightness-75"
-        loading="lazy"
-        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
-      />
+        id="hero"
+        className="relative h-screen flex items-center justify-center text-center bg-gradient-to-b from-teal-900/90 to-teal-900/70"
+      >
 
-      
-      <div className="relative pt-[74px]
+        <img
+          alt="Calm serene nature background with soft light"
+          className="absolute inset-0 w-full h-full object-cover brightness-75"
+          loading="lazy"
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
+        />
+
+
+        <div className="relative pt-[74px]
  max-w-3xl px-6 animate-fade-slide-up">
-        
-        
-        
-        <p className="text-lg hidden sm:block sm:text-xl text-gray-100 mb-2">
-          Serena Blake Counseling Services in Los Angeles, CA
-        </p>
-        <h1 className="text-white font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight drop-shadow-lg">
-          Find Peace. Heal at Your Own Pace
-        </h1>
-        <h2 className="mt-4 text-teal-200 font-semibold text-lg sm:text-xl md:text-2xl drop-shadow-md">
-          Personalized, compassionate therapy to help you navigate life’s
-          challenges with confidence and clarity.
-        </h2>
-        <div className="mb-6">
-          <div className="flex justify-center items-center lg:pt-[14px]
- space-x-2 mb-2">
-  <FaHeart className="text-cyan-300 text-2xl animate-float-glow" />
-  <h3 className="text-lg sm:text-xl font-bold text-cyan-200 animate-fade-loop">
-    Greater Peace in Your Heart
-  </h3>
-</div>
-
-          <div className="flex flex-wrap justify-center items-center gap-3 text-sm font-semibold text-white/90">
-            <div className="flex items-center space-x-1">
-              <FaStar className="text-yellow-400" />
-              <span className="hover:text-yellow-200 transition">Top Rated</span>
-            </div>
-            <span>•</span>
-            <a href="#experience" className="hover:underline hover:text-cyan-300 transition">
-              8+ Years Practice
-            </a>
-            <span>•</span>
-            <a href="#testimonials" className="hover:underline hover:text-cyan-300 transition">
-              Testimonials
-            </a>
-            <span>•</span>
-            <a href="#media" className="hover:underline hover:text-cyan-300 transition">
-              500+ sections
-            </a>
-          </div>
-        </div>
 
 
-        {/* Call-to-Action Button */}
-        <Link
-          to="/contact"
-          className="group relative inline-block mt-10 bg-teal-600 text-white font-semibold text-lg rounded-full px-8 py-4 shadow-lg transition-all duration-300 ease-in-out overflow-hidden hover:-translate-y-1"
-        >
-          <span className="absolute inset-0 bg-gradient-to-r from-teal-600 via-cyan-500 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-sm animate-pulse"></span>
-          <span className="relative z-10">Book a Free Consult</span>
-        </Link>
-      </div>
-    </section>
 
-      <section 
-      ref={sectionRef}
-      className="py-16 px-4 bg-gradient-to-r from-blue-50 to-indigo-50"
-    >
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            Providing compassionate and effective Individual and Couples Therapy
+          <p className="text-lg hidden sm:block sm:text-xl text-gray-100 mb-2">
+            Serena Blake Counseling Services in Los Angeles, CA
+          </p>
+          <h1 className="text-white font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight drop-shadow-lg">
+            Find Peace. Heal at Your Own Pace
+          </h1>
+          <h2 className="mt-4 text-teal-200 font-semibold text-lg sm:text-xl md:text-2xl drop-shadow-md">
+            Personalized, compassionate therapy to help you navigate life’s
+            challenges with confidence and clarity.
           </h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          <div 
-            className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-            data-aos="fade-up"
-          >
-            <div className="text-5xl md:text-6xl font-bold text-indigo-600 mb-4">
-              {yearsExp}+
+          <div className="mb-6">
+            <div className="flex justify-center items-center lg:pt-[14px]
+ space-x-2 mb-2">
+              <FaHeart className="text-cyan-300 text-2xl animate-float-glow" />
+              <h3 className="text-lg sm:text-xl font-bold text-cyan-200 animate-fade-loop">
+                Greater Peace in Your Heart
+              </h3>
             </div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-3">
-              Years Experience
-            </h3>
-            <p className="text-gray-600">
-              Practice helping clients achieve their mental health goals
-            </p>
-          </div>
-          
-          
-          <div 
-            className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div className="text-5xl md:text-6xl font-bold text-indigo-600 mb-4">
-              {clientSessions.toLocaleString()}+
+
+            <div className="flex flex-wrap justify-center items-center gap-3 text-sm font-semibold text-white/90">
+              <div className="flex items-center space-x-1">
+                <FaStar className="text-yellow-400" />
+                <span className="hover:text-yellow-200 transition">Top Rated</span>
+              </div>
+              <span>•</span>
+              <a href="#experience" className="hover:underline hover:text-cyan-300 transition">
+                8+ Years Practice
+              </a>
+              <span>•</span>
+              <a href="#testimonials" className="hover:underline hover:text-cyan-300 transition">
+                Testimonials
+              </a>
+              <span>•</span>
+              <a href="#media" className="hover:underline hover:text-cyan-300 transition">
+                500+ sections
+              </a>
             </div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-3">
-              Individual Client Sessions
-            </h3>
-            <p className="text-gray-600">
-              Helping individuals and couples heal, grow, and find purpose
-            </p>
+          </div>
+
+
+          {/* Call-to-Action Button */}
+          <Link
+            to="/contact"
+            className="group relative inline-block mt-10 bg-teal-600 text-white font-semibold text-lg rounded-full px-8 py-4 shadow-lg transition-all duration-300 ease-in-out overflow-hidden hover:-translate-y-1"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-teal-600 via-cyan-500 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-sm animate-pulse"></span>
+            <span className="relative z-10">Book a Free Consult</span>
+          </Link>
+        </div>
+      </section>
+
+      <section
+        ref={sectionRef}
+        className="py-16 px-4 bg-gradient-to-r from-blue-50 to-indigo-50"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Providing compassionate and effective Individual and Couples Therapy
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div
+              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              data-aos="fade-up"
+            >
+              <div className="text-5xl md:text-6xl font-bold text-indigo-600 mb-4">
+                {yearsExp}+
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                Years Experience
+              </h3>
+              <p className="text-gray-600">
+                Practice helping clients achieve their mental health goals
+              </p>
+            </div>
+
+
+            <div
+              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div className="text-5xl md:text-6xl font-bold text-indigo-600 mb-4">
+                {clientSessions.toLocaleString()}+
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                Individual Client Sessions
+              </h3>
+              <p className="text-gray-600">
+                Helping individuals and couples heal, grow, and find purpose
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       <section className="max-w-7xl mx-auto px-6 py-20 md:py-28 scroll-mt-24" id="about">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
@@ -352,8 +352,11 @@ const HomePage1 = () => {
         </div>
 
         <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-3">
-          
-          <article className="bg-white hover:shadow-xl hover:scale-[1.02] rounded-lg shadow-lg overflow-hidden flex flex-col" onClick={() => navigate('/card1')}>
+
+          <article
+            onClick={() => navigate('/card1')}
+            className="bg-white animate-card-fade-in hover:shadow-xl hover:scale-[1.02] transition-transform duration-300 ease-in-out rounded-lg shadow-lg overflow-hidden flex flex-col motion-safe:animate-card-fade-in"
+          >
             <img
               alt="Calm person meditating in nature representing anxiety and stress management"
               className="w-full h-48 object-cover"
@@ -372,8 +375,9 @@ const HomePage1 = () => {
             </div>
           </article>
 
-          
-          <article className="bg-white hover:shadow-xl hover:scale-[1.02] rounded-lg shadow-lg overflow-hidden flex flex-col" onClick={() => navigate('/card2')}>
+
+
+          <article className="bg-white animate-card-fade-in hover:shadow-xl hover:scale-[1.02] transition-transform duration-300 ease-in-out rounded-lg shadow-lg overflow-hidden flex flex-col motion-safe:animate-card-fade-in" onClick={() => navigate('/card2')}>
             <img
               alt="Couple holding hands and smiling representing relationship counseling"
               className="w-full h-48 object-cover"
@@ -392,8 +396,8 @@ const HomePage1 = () => {
             </div>
           </article>
 
-          
-          <article className="bg-white rounded-lg hover:shadow-xl hover:scale-[1.02] shadow-lg overflow-hidden flex flex-col" onClick={() => navigate('/card3')}>
+
+          <article className="bg-white animate-card-fade-in hover:shadow-xl hover:scale-[1.02] transition-transform duration-300 ease-in-out rounded-lg shadow-lg overflow-hidden flex flex-col motion-safe:animate-card-fade-in" onClick={() => navigate('/card3')}>
             <img
               alt="Peaceful sunrise over mountains representing trauma recovery and healing"
               className="w-full h-48 object-cover"
@@ -425,73 +429,73 @@ const HomePage1 = () => {
       </section>
 
       <section className="bg-[#1F4B4E] text-[#C2E6E8] py-16 px-8 flex flex-col lg:flex-row justify-between items-center gap-8">
-      <h2 className="text-4xl font-semibold text-center lg:text-left">
-        Schedule A <br /> Consultation
-      </h2>
-
-      <p className="text-center lg:text-left text-lg font-semibold max-w-xl">
-        CalmNest is currently accepting new clients. Available for online and in-person sessions.
-      </p>
-
-      <button onClick={()=>navigate("/contact")}className="relative overflow-hidden border border-[#C2E6E8] text-[#C2E6E8] px-6 py-3 rounded-md flex items-center gap-2 font-semibold group hover:shadow-glow transition-all duration-300">
-  
-  <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-transparent via-[#C2E6E8]/20 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none skew-x-12" />
-
-  
-  <span className="relative z-10 flex items-center gap-2">
-    <Sparkles className="w-5 h-5 text-[#C2E6E8] group-hover:animate-spin-slow" />
-    Start Healing
-  </span>
-</button>
-
-
-    </section>
-
-       <section className="bg-[#f7f9fc] py-16 px-4 sm:px-6 lg:px-20">
-      
-      <div className="max-w-4xl mx-auto text-center mb-12">
-        <span className="inline-block bg-yellow-200 text-gray-800 text-sm font-medium px-4 py-1 rounded mb-4">
-          Client Success Stories & Testimonials
-        </span>
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-          What Former Clients Say
+        <h2 className="text-4xl font-semibold text-center lg:text-left">
+          Schedule A <br /> Consultation
         </h2>
-        <p className="text-lg text-gray-700">
-          Real experiences from individuals who have found healing and growth
-          through our work together.
-        </p>
-      </div>
 
-      
-      <div className=" mx-auto  gap-8">
-       
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
-  {[1, 2].map((_, i) => (
-    <motion.div
-      key={i}
-      className="bg-[#b7dcdc] rounded-xl p-6 shadow-md"
-      variants={cardVariants}
-      animate="animate"
-    >
-      <p className="text-sm text-[#1f4e5f] mb-2">Happy Client</p>
-      <p className="text-[#1f4e5f] text-base">
-        Client testimonials are <strong>coming soon</strong>.<br />
-        
-      </p>
-    </motion.div>
-  ))}
-</div>
-        
-        
-      </div>
-    </section>
+        <p className="text-center lg:text-left text-lg font-semibold max-w-xl">
+          CalmNest is currently accepting new clients. Available for online and in-person sessions.
+        </p>
+
+        <button onClick={() => navigate("/contact")} className="relative overflow-hidden border border-[#C2E6E8] text-[#C2E6E8] px-6 py-3 rounded-md flex items-center gap-2 font-semibold group hover:shadow-glow transition-all duration-300">
+
+          <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-transparent via-[#C2E6E8]/20 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none skew-x-12" />
+
+
+          <span className="relative z-10 flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-[#C2E6E8] group-hover:animate-spin-slow" />
+            Start Healing
+          </span>
+        </button>
+
+
+      </section>
+
+      <section className="bg-[#f7f9fc] py-16 px-4 sm:px-6 lg:px-20">
+
+        <div className="max-w-4xl mx-auto text-center mb-12">
+          <span className="inline-block bg-yellow-200 text-gray-800 text-sm font-medium px-4 py-1 rounded mb-4">
+            Client Success Stories & Testimonials
+          </span>
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+            What Former Clients Say
+          </h2>
+          <p className="text-lg text-gray-700">
+            Real experiences from individuals who have found healing and growth
+            through our work together.
+          </p>
+        </div>
+
+
+        <div className=" mx-auto  gap-8">
+
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {[1, 2].map((_, i) => (
+              <motion.div
+                key={i}
+                className="bg-[#b7dcdc] rounded-xl p-6 shadow-md"
+                variants={cardVariants}
+                animate="animate"
+              >
+                <p className="text-sm text-[#1f4e5f] mb-2">Happy Client</p>
+                <p className="text-[#1f4e5f] text-base">
+                  Client testimonials are <strong>coming soon</strong>.<br />
+
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+
+        </div>
+      </section>
 
       <section id="Rates" className="max-w-4xl mx-auto px-6 py-20 scroll-mt-24" >
         <h2 className="text-4xl font-extrabold text-teal-900 mb-12 text-center">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
-          
+
           <details className="border border-teal-300 rounded-lg p-5 group" open>
             <summary className="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
               Do you accept insurance?
@@ -513,7 +517,7 @@ const HomePage1 = () => {
             </p>
           </details>
 
-          
+
           <details className="border border-teal-300 rounded-lg p-5 group">
             <summary className="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
               Are online sessions available?
@@ -556,7 +560,7 @@ const HomePage1 = () => {
             </p>
           </details>
 
-         
+
           <details className="border border-teal-300 rounded-lg p-5 group" open>
             <summary className="font-semibold text-lg cursor-pointer list-none flex justify-between items-center">
               What are your fees?
@@ -581,160 +585,160 @@ const HomePage1 = () => {
         </div>
       </section>
 
-       <section className="bg-[#f7fafc] min-h-[56vh] flex items-center justify-center p-4 font-pacifico">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-20 max-w-6xl w-full relative">
-        
-        <div className="flex items-end gap-6 relative w-[200px]">
-          <div className="base-line"></div>
+      <section className="bg-[#f7fafc] min-h-[56vh] flex items-center justify-center p-4 font-pacifico">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-20 max-w-6xl w-full relative">
 
-          
-          <div className="relative w-16 h-20 bg-[#f9a8a8] border-2 border-[#1f3a44] rounded-sm animate-sway-reverse">
-            <div className="wick"></div>
-            <div className="flame"></div>
-            <div className="flame-inner"></div>
-            <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-[#1f3a44] rotate-45 animate-sparkle" />
-            <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-[#1f3a44] rotate-45 animate-sparkle delay-[1500ms]" />
+          <div className="flex items-end gap-6 relative w-[200px]">
+            <div className="base-line"></div>
+
+
+            <div className="relative w-16 h-20 bg-[#f9a8a8] border-2 border-[#1f3a44] rounded-sm animate-sway-reverse">
+              <div className="wick"></div>
+              <div className="flame"></div>
+              <div className="flame-inner"></div>
+              <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-[#1f3a44] rotate-45 animate-sparkle" />
+              <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-[#1f3a44] rotate-45 animate-sparkle delay-[1500ms]" />
+            </div>
+
+
+            <div className="relative w-12 h-32 bg-white border-2 border-[#1f3a44] rounded-sm animate-sway">
+              <div className="wick"></div>
+              <div className="flame delay-[500ms]"></div>
+              <div className="flame-inner delay-[800ms]"></div>
+              <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-[#1f3a44] rounded-full animate-sparkle delay-[700ms]" />
+              <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-[#1f3a44] rounded-full animate-sparkle delay-[2200ms]" />
+            </div>
           </div>
 
-          
-          <div className="relative w-12 h-32 bg-white border-2 border-[#1f3a44] rounded-sm animate-sway">
-            <div className="wick"></div>
-            <div className="flame delay-[500ms]"></div>
-            <div className="flame-inner delay-[800ms]"></div>
-            <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-[#1f3a44] rounded-full animate-sparkle delay-[700ms]" />
-            <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-[#1f3a44] rounded-full animate-sparkle delay-[2200ms]" />
-          </div>
+
+          <p className="text-[#1f3a44] text-3xl md:text-4xl max-w-xl text-center md:text-left leading-snug">
+            “Peace I leave with you; my peace I give to you. Not as the world gives do I give to you. Let not your hearts be troubled, neither let them be afraid”<br />– John 14:27
+          </p>
         </div>
+      </section>
 
-        
-        <p className="text-[#1f3a44] text-3xl md:text-4xl max-w-xl text-center md:text-left leading-snug">
-          “Peace I leave with you; my peace I give to you. Not as the world gives do I give to you. Let not your hearts be troubled, neither let them be afraid”<br />– John 14:27
-        </p>
-      </div>
-    </section>
 
-      
 
       <section className="bg-teal-50 py-20 px-6 scroll-mt-24" id="contact">
-         <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-10">
-    <h2 className="text-4xl font-extrabold text-teal-900 mb-8 text-center">
-      Contact Dr. Serena Blake
-    </h2>
-    <form className="space-y-6" onSubmit={handleSubmit} id="contactForm">
-     
-      <div>
-        <label className="block font-semibold mb-1" htmlFor="name">
-          Name<span className="text-red-600">*</span>
-        </label>
-        <input
-          className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
-          id="name"
-          name="name"
-          type="text"
-          value={formData.name}
-          onChange={handleInputChange}
-        />
-        {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
-      </div>
+        <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-10">
+          <h2 className="text-4xl font-extrabold text-teal-900 mb-8 text-center">
+            Contact Dr. Serena Blake
+          </h2>
+          <form className="space-y-6" onSubmit={handleSubmit} id="contactForm">
 
-     
-      <div>
-        <label className="block font-semibold mb-1" htmlFor="phone">
-          Phone<span className="text-red-600">*</span>
-        </label>
-        <input
-          className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
-          id="phone"
-          name="phone"
-          type="tel"
-          placeholder="+1 (555) 555-5555"
-          value={formData.phone}
-          onChange={handleInputChange}
-        />
-        {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
-      </div>
+            <div>
+              <label className="block font-semibold mb-1" htmlFor="name">
+                Name<span className="text-red-600">*</span>
+              </label>
+              <input
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+              {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+            </div>
 
-      
-      <div>
-        <label className="block font-semibold mb-1" htmlFor="email">
-          Email<span className="text-red-600">*</span>
-        </label>
-        <input
-          className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
-          id="email"
-          name="email"
-          type="email"
-          placeholder="you@example.com"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
-        {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
-      </div>
 
-      
-      <div>
-        <label className="block font-semibold mb-1" htmlFor="reason">
-          What brings you here?<span className="text-red-600">*</span>
-        </label>
-        <textarea
-          className="w-full border border-gray-300 rounded-md px-4 py-2 resize-y focus:outline-none focus:ring-2 focus:ring-teal-600"
-          id="reason"
-          name="reason"
-          rows="4"
-          value={formData.reason}
-          onChange={handleInputChange}
-        />
-        {errors.reason && <p className="text-red-600 text-sm mt-1">{errors.reason}</p>}
-      </div>
+            <div>
+              <label className="block font-semibold mb-1" htmlFor="phone">
+                Phone<span className="text-red-600">*</span>
+              </label>
+              <input
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="+1 (555) 555-5555"
+                value={formData.phone}
+                onChange={handleInputChange}
+              />
+              {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
+            </div>
 
-      
-      <div>
-        <label className="block font-semibold mb-1" htmlFor="preferredTime">
-          Preferred time to reach you<span className="text-red-600">*</span>
-        </label>
-        <input
-          className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
-          id="preferredTime"
-          name="preferredTime"
-          type="text"
-          placeholder="e.g. Weekdays after 3 PM"
-          value={formData.preferredTime}
-          onChange={handleInputChange}
-        />
-        {errors.preferredTime && <p className="text-red-600 text-sm mt-1">{errors.preferredTime}</p>}
-      </div>
 
-      
-      <div className="flex items-center space-x-3">
-        <input
-          id="agree"
-          name="agree"
-          type="checkbox"
-          checked={formData.agree}
-          onChange={handleInputChange}
-          className="w-5 h-5 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
-        />
-        <label className="font-semibold text-gray-700 select-none" htmlFor="agree">
-          I agree to be contacted<span className="text-red-600">*</span>
-        </label>
-      </div>
-      {errors.agree && <p className="text-red-600 text-sm mt-1">{errors.agree}</p>}
+            <div>
+              <label className="block font-semibold mb-1" htmlFor="email">
+                Email<span className="text-red-600">*</span>
+              </label>
+              <input
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+              {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+            </div>
 
-      
 
-      
-      <button
-        className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-full py-3 text-lg transition"
-        type="submit"
-      >
-        Submit
-      </button>
+            <div>
+              <label className="block font-semibold mb-1" htmlFor="reason">
+                What brings you here?<span className="text-red-600">*</span>
+              </label>
+              <textarea
+                className="w-full border border-gray-300 rounded-md px-4 py-2 resize-y focus:outline-none focus:ring-2 focus:ring-teal-600"
+                id="reason"
+                name="reason"
+                rows="4"
+                value={formData.reason}
+                onChange={handleInputChange}
+              />
+              {errors.reason && <p className="text-red-600 text-sm mt-1">{errors.reason}</p>}
+            </div>
 
-     
-    </form>
-  </div>
+
+            <div>
+              <label className="block font-semibold mb-1" htmlFor="preferredTime">
+                Preferred time to reach you<span className="text-red-600">*</span>
+              </label>
+              <input
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                id="preferredTime"
+                name="preferredTime"
+                type="text"
+                placeholder="e.g. Weekdays after 3 PM"
+                value={formData.preferredTime}
+                onChange={handleInputChange}
+              />
+              {errors.preferredTime && <p className="text-red-600 text-sm mt-1">{errors.preferredTime}</p>}
+            </div>
+
+
+            <div className="flex items-center space-x-3">
+              <input
+                id="agree"
+                name="agree"
+                type="checkbox"
+                checked={formData.agree}
+                onChange={handleInputChange}
+                className="w-5 h-5 text-teal-600 border-gray-300 rounded focus:ring-teal-500"
+              />
+              <label className="font-semibold text-gray-700 select-none" htmlFor="agree">
+                I agree to be contacted<span className="text-red-600">*</span>
+              </label>
+            </div>
+            {errors.agree && <p className="text-red-600 text-sm mt-1">{errors.agree}</p>}
+
+
+
+
+            <button
+              className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-full py-3 text-lg transition"
+              type="submit"
+            >
+              Submit
+            </button>
+
+
+          </form>
+        </div>
       </section>
-<footer className="bg-gray-800 text-white py-12">
+      <footer className="bg-gray-800 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="flex flex-wrap -mx-4">
             <div className="w-full md:w-1/3 px-4 mb-8">
@@ -746,19 +750,19 @@ const HomePage1 = () => {
               <ul className="space-y-2">
                 <li><Link to="/about1" className="text-gray-400 hover:text-white">About Us</Link></li>
                 <li><Link to="/contact" className="text-gray-400 hover:text-white">Our Therapists</Link></li>
-                
-                
+
+
               </ul>
             </div>
-           <div className="w-full md:w-1/3 px-4">
-  <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-  <div className="text-gray-400 italic text-sm mb-4">
-    Coming soon...
-  </div>
-  <p className="text-sm text-gray-400">
-    © 2025 CalmNest. All rights reserved to Dev Patel.
-  </p>
-</div>
+            <div className="w-full md:w-1/3 px-4">
+              <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
+              <div className="text-gray-400 italic text-sm mb-4">
+                Coming soon...
+              </div>
+              <p className="text-sm text-gray-400">
+                © 2025 CalmNest. All rights reserved to Dev Patel.
+              </p>
+            </div>
 
           </div>
         </div>
