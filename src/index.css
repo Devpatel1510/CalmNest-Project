@@ -75,3 +75,32 @@ body,button,a,div,input {
     animation: sparkle 3s ease-in-out infinite;
   }
 }
+
+@keyframes float-glow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-6px) rotate(3deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes fade-loop {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-float-glow {
+    animation: float-glow 3.5s ease-in-out infinite;
+  }
+  .animate-fade-loop {
+    animation: fade-loop 4s ease-in-out infinite;
+  }
+}
