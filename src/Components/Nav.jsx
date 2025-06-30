@@ -94,7 +94,7 @@ function Nav() {
                      <Link to="/contact" className="hover:text-[#1d4ed8] transition-colors">Contact</Link>
            
                      
-                       <Link to="/admin" className="hover:text-[#1d4ed8] transition-colors">Admin</Link>
+                       
                     
                    </div>
           </ul>
