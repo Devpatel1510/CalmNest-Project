@@ -405,7 +405,7 @@ const Card1 = () => {
             <div className="w-full md:w-1/3 px-4 mb-8">
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><Link to="/about1" className="text-gray-400 hover:text-white">About Us</Link></li>
+                <li><Link to="/about" className="text-gray-400 hover:text-white">About Us</Link></li>
                 <li><Link to="/contact" className="text-gray-400 hover:text-white">Our Therapists</Link></li>
 
               </ul>
