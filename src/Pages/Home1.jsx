@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Sparkles } from "lucide-react";
+import { FaStar, FaHeart } from 'react-icons/fa';
 
 
 const HomePage1 = () => {
@@ -178,34 +179,73 @@ const HomePage1 = () => {
 
       
       <section
-        id="hero"
-        className="relative h-screen flex items-center justify-center text-center bg-gradient-to-b from-teal-900/90 to-teal-900/70"
-      >
-        <img
-          alt="Calm serene nature background with soft light"
-          className="absolute inset-0 w-full h-full object-cover brightness-75"
-          loading="lazy"
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
-        />
-        <div className="relative max-w-3xl motion-preset-blur-right px-6">
-          <p className="text-lg sm:text-xl text-gray-100 mb-2">
-           Serena Blake Counseling Services in Los Angeles, CA 
+      id="hero"
+      className="relative h-screen flex items-center justify-center text-center bg-gradient-to-b from-teal-900/90 to-teal-900/70"
+    >
+      
+      <img
+        alt="Calm serene nature background with soft light"
+        className="absolute inset-0 w-full h-full object-cover brightness-75"
+        loading="lazy"
+        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80"
+      />
+
+      
+      <div className="relative pt-[74px]
+ max-w-3xl px-6 animate-fade-slide-up">
+        
+        
+        
+        <p className="text-lg hidden sm:block sm:text-xl text-gray-100 mb-2">
+          Serena Blake Counseling Services in Los Angeles, CA
         </p>
-          <h1 className="text-white font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight drop-shadow-lg">
-            Find Peace. Heal at Your Own Pace
-          </h1>
-          <h2 className="mt-4 text-teal-200 font-semibold text-lg sm:text-xl md:text-2xl drop-shadow-md">
-            Personalized, compassionate therapy to help you navigate life’s
-            challenges with confidence and clarity.
-          </h2>
-          <Link to="/contact"
-            className="inline-block mt-10 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-lg rounded-full px-8 py-4 shadow-lg transition"
-            
-          >
-            Book a Free Consult
-          </Link>
+        <h1 className="text-white font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight drop-shadow-lg">
+          Find Peace. Heal at Your Own Pace
+        </h1>
+        <h2 className="mt-4 text-teal-200 font-semibold text-lg sm:text-xl md:text-2xl drop-shadow-md">
+          Personalized, compassionate therapy to help you navigate life’s
+          challenges with confidence and clarity.
+        </h2>
+        <div className="mb-6">
+          <div className="flex justify-center items-center lg:pt-[14px]
+ space-x-2 mb-2">
+  <FaHeart className="text-cyan-300 text-2xl animate-float-glow" />
+  <h3 className="text-lg sm:text-xl font-bold text-cyan-200 animate-fade-loop">
+    Greater Peace in Your Heart
+  </h3>
+</div>
+
+          <div className="flex flex-wrap justify-center items-center gap-3 text-sm font-semibold text-white/90">
+            <div className="flex items-center space-x-1">
+              <FaStar className="text-yellow-400" />
+              <span className="hover:text-yellow-200 transition">Top Rated</span>
+            </div>
+            <span>•</span>
+            <a href="#experience" className="hover:underline hover:text-cyan-300 transition">
+              8+ Years Practice
+            </a>
+            <span>•</span>
+            <a href="#testimonials" className="hover:underline hover:text-cyan-300 transition">
+              Testimonials
+            </a>
+            <span>•</span>
+            <a href="#media" className="hover:underline hover:text-cyan-300 transition">
+              500+ sections
+            </a>
+          </div>
         </div>
-      </section>
+
+
+        {/* Call-to-Action Button */}
+        <Link
+          to="/contact"
+          className="group relative inline-block mt-10 bg-teal-600 text-white font-semibold text-lg rounded-full px-8 py-4 shadow-lg transition-all duration-300 ease-in-out overflow-hidden hover:-translate-y-1"
+        >
+          <span className="absolute inset-0 bg-gradient-to-r from-teal-600 via-cyan-500 to-teal-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-sm animate-pulse"></span>
+          <span className="relative z-10">Book a Free Consult</span>
+        </Link>
+      </div>
+    </section>
 
       <section 
       ref={sectionRef}
