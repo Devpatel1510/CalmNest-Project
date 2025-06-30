@@ -3,6 +3,7 @@ import React, { useState, useEffect,useRef } from "react";
 import { motion } from 'framer-motion'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Sparkles } from "lucide-react";
 
 
 const HomePage1 = () => {
@@ -94,7 +95,9 @@ const HomePage1 = () => {
     }
   }, [location]);
 
- 
+  useEffect(() => {
+    localStorage.setItem('homeTheme', 'home1');
+  }, []);
 
   const navigate = useNavigate();
   const [, setMobileMenuOpen] = useState(false);
@@ -537,6 +540,40 @@ const HomePage1 = () => {
           </details>
         </div>
       </section>
+
+       <section className="bg-[#f7fafc] min-h-[56vh] flex items-center justify-center p-4 font-pacifico">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-20 max-w-6xl w-full relative">
+        
+        <div className="flex items-end gap-6 relative w-[200px]">
+          <div className="base-line"></div>
+
+          
+          <div className="relative w-16 h-20 bg-[#f9a8a8] border-2 border-[#1f3a44] rounded-sm animate-sway-reverse">
+            <div className="wick"></div>
+            <div className="flame"></div>
+            <div className="flame-inner"></div>
+            <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-[#1f3a44] rotate-45 animate-sparkle" />
+            <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-[#1f3a44] rotate-45 animate-sparkle delay-[1500ms]" />
+          </div>
+
+          
+          <div className="relative w-12 h-32 bg-white border-2 border-[#1f3a44] rounded-sm animate-sway">
+            <div className="wick"></div>
+            <div className="flame delay-[500ms]"></div>
+            <div className="flame-inner delay-[800ms]"></div>
+            <div className="absolute top-1/3 left-1/3 w-2 h-2 bg-[#1f3a44] rounded-full animate-sparkle delay-[700ms]" />
+            <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-[#1f3a44] rounded-full animate-sparkle delay-[2200ms]" />
+          </div>
+        </div>
+
+        
+        <p className="text-[#1f3a44] text-3xl md:text-4xl max-w-xl text-center md:text-left leading-snug">
+          “Peace I leave with you; my peace I give to you. Not as the world gives do I give to you. Let not your hearts be troubled, neither let them be afraid”<br />– John 14:27
+        </p>
+      </div>
+    </section>
+
+      
 
       <section className="bg-teal-50 py-20 px-6 scroll-mt-24" id="contact">
          <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-10">
