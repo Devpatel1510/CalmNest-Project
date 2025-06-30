@@ -56,7 +56,7 @@ function App() {
 
 
       <audio ref={audioRef} loop>
-        <source src="/R1.mp3" type="audio/mp3" />
+        <source src="/r1.mp3" type="audio/mp3" />
         Your browser does not support audio.
       </audio>
 
